@@ -7,6 +7,10 @@ namespace NativeToolkitImpl
     {
         public static INativeToolkit CreateImpl()
         {
+#if UNITY_EDITOR
+            if (Application.isEditor)
+                return new EditorImpl();
+#endif
 #if UNITY_ANDROID
             if (Application.platform == RuntimePlatform.Android)
                 return new AndroidImpl();
