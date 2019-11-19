@@ -1,17 +1,13 @@
 using System.IO;
 using UnityEditor;
 using UnityEditor.Callbacks;
-#if UNITY_IPHONE
 using UnityEditor.iOS.Xcode;
-#endif
 
 public class PostProcessor 
 {
     [PostProcessBuild]
     public static void OnPostProcessBuild(BuildTarget target, string path)
     {
-#if UNITY_IPHONE
-		
         if(target != BuildTarget.iOS) { return; }
 
         string projPath = Path.Combine(path, "Unity-iPhone.xcodeproj/project.pbxproj");
@@ -43,6 +39,5 @@ public class PostProcessor
         rootDict.SetString("NSLocationAlwaysAndWhenInUseUsageDescription", "Requires access to Location");
 
         File.WriteAllText(plistPath, plist.WriteToString());
-#endif
     }	
 }
