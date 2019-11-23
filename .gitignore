@@ -18,6 +18,10 @@ Unity/Assets/AssetStoreTools/
 Unity/Assets/AssetStoreTools.meta
 Unity/Assets/NativeToolkit/Readme.pdf
 Unity/Assets/NativeToolkit/Readme.pdf.meta
+Unity/Assets/Plugins/Editor.meta
+Unity/Assets/Plugins/iOS/*.meta
+Unity/Assets/Plugins/iOS/**/*.meta
+build/
 
 # file extensions
 *.csproj
