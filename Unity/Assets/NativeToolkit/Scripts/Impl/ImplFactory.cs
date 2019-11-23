@@ -16,7 +16,7 @@ namespace NativeToolkitImpl
                 return new AndroidImpl();
 #elif UNITY_IOS
             if (Application.platform == RuntimePlatform.IPhonePlayer)
-                return new IOSImpl();
+                return new IosImpl();
 #endif
             return new DummyImpl();
         }
