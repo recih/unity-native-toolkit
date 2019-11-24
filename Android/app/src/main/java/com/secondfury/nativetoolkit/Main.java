@@ -9,11 +9,27 @@ import com.unity3d.player.UnityPlayerActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.media.ExifInterface;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
 public class Main {
+
+	public static String getText(String key) {
+		Activity currentActivity = getUnityActivity();
+		if (currentActivity == null) {
+			return key;
+		}
+
+		String packageName = currentActivity.getPackageName();
+		int resId = currentActivity.getResources().getIdentifier(key, "string", packageName);
+		try {
+			return currentActivity.getText(resId).toString();
+		} catch (Resources.NotFoundException e) {
+			return key;
+		}
+	}
 
 	public static int addImageToGallery(String path) 
 	{
