@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-    compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'
-    compileOnly 'androidx.core:core:1.1.0'
+    compileOnly 'androidx.appcompat:appcompat:1.1.0'
     compileOnly files('libs/unity-classes.jar')
 }
