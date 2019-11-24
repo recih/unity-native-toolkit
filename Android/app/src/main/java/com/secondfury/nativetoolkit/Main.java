@@ -13,7 +13,7 @@ import android.media.ExifInterface;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-public class Main extends UnityPlayerActivity {
+public class Main {
 
 	public static int addImageToGallery(String path) 
 	{
