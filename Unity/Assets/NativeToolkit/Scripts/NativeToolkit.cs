@@ -50,6 +50,11 @@ public class NativeToolkit : MonoBehaviour {
 		}
 	}
 
+	public static string GetText(string key)
+	{
+		Instance.Awake();
+		return Instance._impl.GetText(key);
+	}
 
 	//=============================================================================
 	// Grab and save screenshot

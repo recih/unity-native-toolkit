@@ -4,6 +4,11 @@ namespace NativeToolkitImpl
 {
     public abstract class BaseImpl : INativeToolkit
     {
+        public virtual string GetText(string key)
+        {
+            return key;
+        }
+
         public virtual string PrepareScreenshotPath(string albumName, string screenshotFilename)
         {
             Debug.Log($"[NativeToolkit] PrepareScreenshotPath: {albumName}, {screenshotFilename}");

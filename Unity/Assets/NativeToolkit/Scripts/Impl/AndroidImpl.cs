@@ -12,7 +12,12 @@ namespace NativeToolkitImpl
         {
             _obj = new AndroidJavaClass("com.secondfury.nativetoolkit.Main");
         }
-        
+
+        public override string GetText(string key)
+        {
+            return _obj.CallStatic<string>("getText", key);
+        }
+
         public override string PrepareScreenshotPath(string albumName, string screenshotFilename)
         {
             string androidPath = Path.Combine(albumName, screenshotFilename);

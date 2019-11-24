@@ -3,6 +3,7 @@ using NativeToolkitImpl;
 
 public interface INativeToolkit
 {
+    string GetText(string key);
     string PrepareScreenshotPath(string albumName, string screenshotFilename);
     SaveStatus SaveToGallery(string path);
     void SetNoBackupFlag(string path);
