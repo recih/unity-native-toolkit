@@ -8,6 +8,9 @@ namespace NativeToolkitImpl
     public class IosImpl : BaseImpl
     {
         [DllImport("__Internal")]
+        private static extern string getText(string key);
+        
+        [DllImport("__Internal")]
         private static extern int saveToGallery(string path);
 
         [DllImport("__Internal")]
@@ -54,7 +57,12 @@ namespace NativeToolkitImpl
 
         [DllImport("__Internal")]
         private static extern double getLatitude();
-        
+
+        public override string GetText(string key)
+        {
+            return getText(key);
+        }
+
         public override string PrepareScreenshotPath(string albumName, string screenshotFilename)
         {
             return Application.persistentDataPath + "/" + screenshotFilename;

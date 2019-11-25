@@ -46,6 +46,13 @@ static Locale* localeDelegate = NULL;
 
 extern "C"
 {
+    char* getText(const char* key)
+    {
+        NSString *k = [NSString stringWithUTF8String:key];
+        NSString *text = NSLocalizedString(k, comment: @"");
+        return [StringTools createCString:[text UTF8String]];
+    }
+
     char* getLocale()
     {
         NSLocale *locale = [NSLocale currentLocale];

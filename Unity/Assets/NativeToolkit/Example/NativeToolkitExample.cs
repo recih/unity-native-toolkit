@@ -13,6 +13,7 @@ public class NativeToolkitExample : MonoBehaviour {
         console.text += "\nLocation enabled: " + NativeToolkit.StartLocation();
         console.text += "\nDevice country: " + NativeToolkit.GetCountryCode();
         console.text += "\nLaunched from notification: " + NativeToolkit.WasLaunchedFromNotification();
+        console.text += "\nGet I18N Text: " + NativeToolkit.GetText("native_toolkit_button_ok");
 	}
 	
 	void OnEnable ()
@@ -70,7 +71,7 @@ public class NativeToolkitExample : MonoBehaviour {
 
 	public void OnShowAlertPress()
 	{
-		NativeToolkit.ShowAlert("Native Toolkit", "This is an alert dialog!", DialogFinished);
+		NativeToolkit.ShowAlert("Native Toolkit", "This is an alert dialog!", DialogFinished, NativeToolkit.GetText("native_toolkit_button_ok"));
 	}
 
 	public void OnShowDialogPress()
