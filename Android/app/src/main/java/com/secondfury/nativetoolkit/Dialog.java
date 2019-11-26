@@ -25,7 +25,7 @@ public class Dialog {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setTitle(title);
 		builder.setMessage(message);
-        builder.setCancelable(true);
+        builder.setCancelable(false);
         builder.setPositiveButton(pos,
                 new DialogInterface.OnClickListener() {
             		public void onClick(DialogInterface dialog, int id) {
@@ -50,7 +50,7 @@ public class Dialog {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setTitle(title);
 		builder.setMessage(message);
-        builder.setCancelable(true);
+        builder.setCancelable(false);
         builder.setPositiveButton(pos,
                 new DialogInterface.OnClickListener() {
             		public void onClick(DialogInterface dialog, int id) {
@@ -68,7 +68,7 @@ public class Dialog {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(title);
 		builder.setMessage(message);
-        builder.setCancelable(true);
+        builder.setCancelable(false);
         builder.setPositiveButton(pos,
                 new DialogInterface.OnClickListener() {
             		public void onClick(DialogInterface dialog, int id) {
