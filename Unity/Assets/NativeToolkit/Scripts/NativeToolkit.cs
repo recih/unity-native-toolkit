@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using MiniJSON;
 using NativeToolkitImpl;
 using UnityEngine;
@@ -251,12 +252,30 @@ public class NativeToolkit : MonoBehaviour {
 		OnDialogComplete = callback;
 		Instance._impl.ShowConfirm(title, message, positiveBtnText, negativeBtnText);
 	}
+	
+	public static Task<bool> ShowConfirmAsync(string title, string message, string positiveBtnText = "Ok", string negativeBtnText = "Cancel")
+	{
+		Instance.Awake ();
+		var tcs = new TaskCompletionSource<bool>();
+		OnDialogComplete = tcs.SetResult;
+		Instance._impl.ShowConfirm(title, message, positiveBtnText, negativeBtnText);
+		return tcs.Task;
+	}
 
 	public static void ShowAlert(string title, string message, Action<bool> callback = null, string btnText = "Ok")
 	{
 		Instance.Awake ();
 		OnDialogComplete = callback;
 		Instance._impl.ShowAlert(title, message, btnText);
+	}
+	
+	public static Task ShowAlertAsync(string title, string message, string btnText = "Ok")
+	{
+		Instance.Awake ();
+		var tcs = new TaskCompletionSource<bool>();
+		OnDialogComplete = tcs.SetResult;
+		Instance._impl.ShowAlert(title, message, btnText);
+		return tcs.Task;
 	}
 
 	public void OnDialogPress(string result)
