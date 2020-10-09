@@ -32,7 +32,7 @@ jobs:
       uses: pCYSl5EDgo/create-unitypackage@v1
       with:
         package-path: ./unity-native-toolkit.unitypackage
-        include-files: ./Unity/metaList
+        include-files: ./Unity/meta_list
         project-folder: ./Unity
     - uses: actions/upload-artifact@v2
       with:
