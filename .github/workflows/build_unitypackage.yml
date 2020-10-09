@@ -23,11 +23,12 @@ jobs:
     - name: Get packaging files
       working-directory: ./Unity/
       run: |
-        find Assets/NativeToolkit -type d -exec echo {}.meta \; > meta_list
-        find Assets/Plugins -type d -exec echo {}.meta \; >> meta_list
-        find Assets/NativeToolkit -type f -name \*.meta >> meta_list
-        find Assets/Plugins -type f -name \*.meta >> meta_list
-        awk '!seen[$0]++' meta_list > meta_list
+        find Assets/NativeToolkit -type d -exec echo {}.meta \; > temp_list
+        find Assets/Plugins -type d -exec echo {}.meta \; >> temp_list
+        find Assets/NativeToolkit -type f -name \*.meta >> temp_list
+        find Assets/Plugins -type f -name \*.meta >> temp_list
+        awk '!seen[$0]++' temp_list > meta_list
+        cat meta_list
     - name: create-unitypackage
       uses: pCYSl5EDgo/create-unitypackage@v1
       with:
