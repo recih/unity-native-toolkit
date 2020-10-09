@@ -20,13 +20,14 @@ jobs:
     - name: Build with Gradle
       working-directory: ./Android
       run: ./gradlew build
-    - name: Get unity package files
+    - name: Get packaging files
       working-directory: ./Unity/
       run: |
-        echo "Assets/NativeToolkit.meta" > metaList
-        find Assets/NativeToolkit/ -name \*.meta >> metaList
-        echo "Assets/Plugins.meta" >> metaList
-        find Assets/Plugins/ -name \*.meta >> metaList
+        find Assets/NativeToolkit -type d -exec echo {}.meta \; > meta_list
+        find Assets/Plugins -type d -exec echo {}.meta \; >> meta_list
+        find Assets/NativeToolkit -type f -name \*.meta >> meta_list
+        find Assets/Plugins -type f -name \*.meta >> meta_list
+        awk '!seen[$0]++' meta_list > meta_list
     - name: create-unitypackage
       uses: pCYSl5EDgo/create-unitypackage@v1
       with:
@@ -36,3 +37,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         path: ./unity-native-toolkit.unitypackage
+        if-no-files-found: error
