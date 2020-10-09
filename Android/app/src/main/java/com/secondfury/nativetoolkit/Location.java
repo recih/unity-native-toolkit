@@ -1,6 +1,7 @@
 package com.secondfury.nativetoolkit;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class Location implements LocationListener {
 
     private LocationManager locationManager;
 
+    @SuppressLint("MissingPermission")
     public void init(Context context) {
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         if (checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
