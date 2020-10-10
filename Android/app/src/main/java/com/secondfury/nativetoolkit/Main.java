@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.media.ExifInterface;
+import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -172,6 +173,19 @@ public class Main {
 		
 		Locale locale = Locale.getDefault();
 		return locale.getCountry();
+	}
+
+	public static String getLanguage()
+	{
+		Locale locale = Locale.getDefault();
+		String lang;
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+			lang = locale.getLanguage() + "-" + locale.getScript() + "-" + locale.getCountry();
+		} else {
+			lang = locale.getLanguage() + "-" + locale.getCountry();
+		}
+		Log.w("Native Toolkit", "Get language: " + lang);
+		return lang;
 	}
 
 	public static void startLocation()

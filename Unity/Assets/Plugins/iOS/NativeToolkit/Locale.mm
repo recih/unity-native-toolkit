@@ -62,6 +62,14 @@ extern "C"
         
         return [StringTools createCString:[countryCode UTF8String]];
     }
+
+    char* getLanguage()
+    {
+        NSString *lang = [[NSLocale preferredLanguages] firstObject];
+        NSLog(@"[NativeToolkit] getLanguage: %@", lang);
+
+        return [StringTools createCString:[lang UTF8String]];
+    }
     
     void startLocation()
     {

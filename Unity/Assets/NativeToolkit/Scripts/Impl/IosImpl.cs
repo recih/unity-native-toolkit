@@ -26,6 +26,9 @@ namespace NativeToolkitImpl
         private static extern string getLocale();
 
         [DllImport("__Internal")]
+        private static extern string getLanguage();
+
+        [DllImport("__Internal")]
         private static extern void sendEmail(string to, string cc, string bcc, string subject, string body, string imagePath);
 
         [DllImport("__Internal")]
@@ -134,6 +137,11 @@ namespace NativeToolkitImpl
         public override string GetCountryCode()
         {
             return getLocale();
+        }
+
+        public override string GetLanguage()
+        {
+            return getLanguage();
         }
 
         public override void ScheduleLocalNotification(string title, string message, int id, int delayInMinutes, string sound, bool vibrate,

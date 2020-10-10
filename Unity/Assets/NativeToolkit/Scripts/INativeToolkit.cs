@@ -19,6 +19,7 @@ public interface INativeToolkit
     double GetLongitude();
     double GetLatitude();
     string GetCountryCode();
+    string GetLanguage();
     void ScheduleLocalNotification(string title, string message, int id, int delayInMinutes, string sound,
         bool vibrate, string smallIcon, string largeIcon);
     void ClearLocalNotification(int id);

@@ -89,6 +89,11 @@ namespace NativeToolkitImpl
             return _obj.CallStatic<string>("getLocale");
         }
 
+        public override string GetLanguage()
+        {
+            return _obj.CallStatic<string>("getLanguage");
+        }
+
         public override void ScheduleLocalNotification(string title, string message, int id, int delayInMinutes, string sound, bool vibrate,
             string smallIcon, string largeIcon)
         {

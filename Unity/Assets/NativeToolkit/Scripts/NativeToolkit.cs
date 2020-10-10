@@ -341,10 +341,15 @@ public class NativeToolkit : MonoBehaviour {
 
 	public static string GetCountryCode()
 	{
-		Instance.Awake ();
+		Instance.Awake();
 		return Instance._impl.GetCountryCode();
 	}
 
+	public static string GetLanguage()
+	{
+		Instance.Awake();
+		return Instance._impl.GetLanguage();
+	}
 
 	//=============================================================================
 	// Local notifications
